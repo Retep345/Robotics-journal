@@ -46,6 +46,7 @@ using copper loops and magnets, we plan to create an electric motor.
 
 *7. apply current using wires touching commutator
 
+* the motor operates by applying current to the commutator plates, transfering current through the loops and generating a magnetic field. the strong magnets interact with that field, pulling or pushing it and forcing it to turn so it can reach equilibrium. by having the source of current unattached to the commutator, the brushes switch which plate they contact, therefore inverting the magnetic field. the momentum carrier it over and it then rotates to reach its new equilibrium, repeating as long as there is current switching between the commutator plates.
 
 
 
