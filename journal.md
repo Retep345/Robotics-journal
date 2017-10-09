@@ -31,15 +31,20 @@ function test()
 ## Electric Motor
 using copper loops and magnets, we plan to create an electric motor.
 
-1. put nail into either flat end of a cork core
+### building a basic motor
+*1. put nail into either flat end of a cork core
 
-2. apply 2 strips of copper tape at one end with a gap between. these act as a **commutator**
+*2. apply 2 strips of copper tape at one end with a gap between. these act as a **commutator**
 
-3. using large paperclips, create a rack to hold the nails to act as an axis of rotation
+*3. wrap copper wire lengthways around the core between the commutator plates
 
-4. face magnets so that they attract, but spaced away from eachother either rounded side of the central rotor
+*4. sand the ends of the wire and solder onto plates
 
-5. apply current using wires touching commutator
+*5. using large paperclips, create a rack to hold the nails to act as an axis of rotation
+
+*6. face magnets so that they attract, but spaced away from eachother either rounded side of the central rotor
+
+*7. apply current using wires touching commutator
 
 
 
