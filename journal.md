@@ -34,15 +34,25 @@ using the terminal of a linux-based system, we can enter code to interact with d
 
 * known commands:
     -$ ls                             lists sub-directories within current directory
+    
     -$ cd (subdirectory)              enter named subdirectory
+    
     -$ mkdir (name)                   creates a directory within current location with the netered name
+    
     -$ echo "hello"                   the terminal responds 'Hello'
+    
     -$ cat hello.md                   terminal responds 'Hello' while creating a formal document called hello.md
+    
     -$ cp hello.md hello-again.md     copies information over
+    
     -$ rm hello.md                    removes hello.md
+    
     -$ rm - rf                        remove (recursive forced)   removes file within permission limitations
+    
     -$sudo rm - rf                    removes with sudo permissions (very dangerous if used incorrectly)
+    
     -$ cat/proc/cpuinfo               displays information about the computer from CPU
+    
     -$ man (command)                  gives help information about the command, with man being short for manual.
 
 
