@@ -25,7 +25,9 @@ function test()
 * -[x] a tick box is done with an x between square brackets
   -[ ] an unticked box is done without the x
 
-* a url can be attached using a \! before a given name in a square bracket and a url in a curved bracket [example](https://dle.plymouth.ac.uk/) using the DLE site
+* an can be attached using a \! before a given name in a square bracket and a url or link in a curved bracket such as \![image name](/images/image_title.png)
+
+
 
 
 ## Command Lines
@@ -74,12 +76,16 @@ using copper loops and magnets, we plan to create an electric motor.
 
 7. apply current using wires touching commutator
 
+![motor](https://user-images.githubusercontent.com/32262003/34777911-b20a477c-f613-11e7-9549-e796ee3bfa0b.jpg)
+
 * the motor operates by applying current to the commutator plates, transfering current through the loops and generating a magnetic field. the strong magnets interact with that field, pulling or pushing it and forcing it to turn so it can reach equilibrium. by having the source of current unattached to the commutator, the brushes switch which plate they contact, therefore inverting the magnetic field. the momentum carrier it over and it then rotates to reach its new equilibrium, repeating as long as there is current switching between the commutator plates.
+
+![motor spin](https://user-images.githubusercontent.com/32262003/34778485-5ee793cc-f615-11e7-9779-73bbb3c2bf28.gif)
 
 * to improve the motor, a second coil can be added. this increased rate of alternation makes it less likely for the motor to stall and can also provide more power behind it. adding a second coil doubles the commutators, which can be extended to close up the space made by the coils to keep more contact on the motor during rotation.
 
 
-![motor](https://user-images.githubusercontent.com/32262003/34777911-b20a477c-f613-11e7-9549-e796ee3bfa0b.jpg)
+
 
 
 
