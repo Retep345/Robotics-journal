@@ -86,24 +86,30 @@ using copper loops and magnets, we plan to create an electric motor.
 * to improve the motor, a second coil can be added. this increased rate of alternation makes it less likely for the motor to stall and can also provide more power behind it. adding a second coil doubles the commutators, which can be extended to close up the space made by the coils to keep more contact on the motor during rotation. the above gif has two coils on the core
 
 
-##Encoder
+###Encoder
 using an infared LED and a LDR, the rate of the motor can be relatively measured.
 
 attaching a card disc with a segment removed, the LDR will read infared light once per rotating, and trigger a signal that will be sent to an arduino board. the board will then count each "pulse" and add to a count, printing to a screen. during tha practical, me and my partner timed 20 seconds and multiplied the count by 3 to get an RPM for the motor. after 3 readings we got an average of roughly 11,000 RPM.
 
 
+
+
+
+#Motors
+
 ##Servo Motors
 
 the servo motors are controlled by changing the length of time the servo's pin is HIGH. by adding values from exernal potentiometers to a constant we could move the servo motor in a 180 degree range. setting a second pin with a second servo motor and potentiometer meant we could control the two independently.
+as the last part of the practical module, we we're required to create a 3D model that will then be 3d-printed with plastic and controled using the 2 servo motors provided.
 
 
 ##Robot Arm
-as the last part of the practical module, we we're required to create a 3D model that will then be 3d-printed with plastic and controled using the 2 servo motors provided.
-
 with only 2 servo motors, that means that for the robot to be an "arm" it requires one servo to be a hand that can open and close while the other needs to move that hand from one location to another, thus giving the arm a range it can reach within.
 
 with only servo motors, the hand became a claw with two digits, one immovable, while the other could open and close to grab objects.
-the arm was more complex, as it needed horizontal motion. this was achieved by having the servo move a "bicep", which had a "forearm" hinged on it. the end of the forearm would then hinge on a hole in a rail that went across solid points, keeping it level, meaning that if the servo turned X degrees, the "elbow" would move 2X degrees and so the wrist would hinge X degrees, keeping the hand level while the elbow rises and falls with movement.
+the arm was more complex, as it needed horizontal motion. this was achieved by having the servo move a "bicep", which had a "forearm" hinged on it. the end of the forearm would then hinge on a hole in a rail that went across solid points, keeping it level, meaning that if the servo turned 'X' degrees, the "elbow" would move '2X' degrees and so the wrist would hinge 'X' degrees, keeping the hand level and moving forward and back, while the elbow rises and falls with movement.
+
+
 
 
 
