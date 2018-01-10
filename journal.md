@@ -79,10 +79,8 @@ using copper loops and magnets, we plan to create an electric motor.
 * to improve the motor, a second coil can be added. this increased rate of alternation makes it less likely for the motor to stall and can also provide more power behind it. adding a second coil doubles the commutators, which can be extended to close up the space made by the coils to keep more contact on the motor during rotation.
 
 
-![coil](/images/motor.jpg)
+![motor](https://user-images.githubusercontent.com/32262003/34777911-b20a477c-f613-11e7-9549-e796ee3bfa0b.jpg)
 
-
-![GitHub Logo](/images/logo.png)
 
 
 
