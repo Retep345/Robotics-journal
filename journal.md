@@ -25,7 +25,7 @@ function test()
 * -[x] a tick box is done with an x between square brackets
   -[ ] an unticked box is done without the x
 
-* a url can be attached using a \! before a given name in a square bracket and a url in a curved bracket ![example](https://dle.plymouth.ac.uk/) using the DLE site
+* a url can be attached using a \! before a given name in a square bracket and a url in a curved bracket [example](https://dle.plymouth.ac.uk/) using the DLE site
 
 
 ## Command Lines
