@@ -1,6 +1,6 @@
 # Journal Peter Allen ROCO 222
           (partnered with Will Redhead)
-
+          
 ## Markdown
 markdown is a text editing syntax that simplifies HTML coding for ease of use and speed.
 
@@ -59,7 +59,7 @@ using the terminal of a linux-based system, we can enter code to interact with d
     -$ man (command)                  gives help information about the command, with man being short for manual.
 
 
-## Electric Motor
+## DC Electric Motor
 using copper loops and magnets, we plan to create an electric motor.
 
 ### building a basic motor
@@ -91,11 +91,84 @@ using an infared LED and a LDR, the rate of the motor can be relatively measured
 
 attaching a card disc with a segment removed, the LDR will read infared light once per rotating, and trigger a signal that will be sent to an arduino board. the board will then count each "pulse" and add to a count, printing to a screen. during tha practical, me and my partner timed 20 seconds and multiplied the count by 3 to get an RPM for the motor. after 3 readings we got an average of roughly 11,000 RPM.
 
+the code below is what the arduino board was programmed with:
+
+**/#define NOT_AN_INTERRUPT -1
+
+**const byte ledPin = 13;
+const byte interruptPin = 2;
+volatile byte state = LOW;
+int pulseCounter = 0;
+
+**void setup() {
+  pinMode(ledPin, OUTPUT);
+  pinMode(interruptPin, INPUT);
+  Serial.begin(9600); // set up Serial library at 9600 bps
+
+**// configure the interrupt call-back: blink is called everytime the pin
+  // goes from low to high.
+  attachInterrupt(digitalPinToInterrupt(interruptPin), blink, RISING);
+}
+
+**void loop() {
+  digitalWrite(ledPin, state);
+  String counterString = String(pulseCounter);
+  Serial.println(counterString); // prints hello with ending line break
+  delay(1000); // wait 1s
+}
+
+**void blink() {
+  state = !state;
+  pulseCounter++;
+}
 
 
 
 
 ## Motors
+
+### Stepper Motors
+
+
+
+the code used for one-phase movement:
+**void setup(){
+ 
+ **//set up channels A and B
+ pinMode(12, OUTPUT);  //Initiates Motor Channel A pin
+ pinMode(9, OUTPUT);   //Initiates Brake Channel A pin
+ pinMode(13, OUTPUT);  //Initiates Motor Channel B pin
+ pinMode(8, OUTPUT);   //Initiates Brake Channel B pin
+}
+
+**void loop(){
+  
+  **digitalWrite(12, HIGH); //Establishes forward direction of Channel A
+  digitalWrite(9, LOW);   //Disengage the Brake for Channel A
+  analogWrite(3, 255);    //Spins the motor on Channel A at full speed
+  digitalWrite(13, HIGH); //Establishes forward direction of Channel B
+  digitalWrite(8, LOW);   //Disengage the Brake for Channel B
+  analogWrite(11, 0);    //Spins the motor on Channel B at full speed
+  
+  **delay(1);
+  
+  **analogWrite(3, 0);    //Spins the motor on Channel A at full speed
+  **analogWrite(11, 255);    //Spins the motor on Channel B at full speed
+
+  **delay(1);
+  
+  **digitalWrite(12, LOW); //Establishes backward direction of Channel A
+  analogWrite(3, 255);    //Spins the motor on Channel A at full speed
+  digitalWrite(13, LOW); //Establishes backward direction of Channel B
+  analogWrite(11, 0);    //Spins the motor on Channel B at full speed
+  
+  **delay(1);
+  
+  **analogWrite(3, 0);    //Spins the motor on Channel A at full speed
+  analogWrite(11, 255);    //Spins the motor on Channel B at full speed
+
+  **delay(1);
+}
 
 ### Servo Motors
 
