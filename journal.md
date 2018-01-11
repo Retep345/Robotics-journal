@@ -308,15 +308,74 @@ as the last part of the practical module, we we're required to create a 3D model
 ### Robot Arm
 with only 2 servo motors, that means that for the robot to be an "arm" it requires one servo to be a hand that can open and close while the other needs to move that hand from one location to another, thus giving the arm a range it can reach within.
 
+the end result is this:
+![arm photo](https://user-images.githubusercontent.com/32262003/34829851-ead1e5f8-f6d9-11e7-8db0-558ae708c04f.JPG)
+
 with only servo motors, the hand became a claw with two digits, one immovable, while the other could open and close to grab objects.
 the arm was more complex, as it needed horizontal motion. this was achieved by having the servo move a "bicep", which had a "forearm" hinged on it. the end of the forearm would then hinge on a hole in a rail that went across solid points, keeping it level, meaning that if the servo turned 'X' degrees, the "elbow" would move '2X' degrees and so the wrist would hinge 'X' degrees, keeping the hand level and moving forward and back, while the elbow rises and falls with movement.
 
+![arm back](https://user-images.githubusercontent.com/32262003/34829721-8a052f64-f6d9-11e7-9384-63e1d35b9647.gif)
+
+![claw open](https://user-images.githubusercontent.com/32262003/34829777-b06961a2-f6d9-11e7-98fb-d4b790cc5d4d.gif)
 
 
+the code used to control the servo motors in the arm is as follows:
+
+>void setup(){
+  
+
+>pinMode(9, OUTPUT);
+
+>pinMode(10, OUTPUT);
+
+> Serial.begin(9600);
+
+>}
 
 
+>void loop(){
 
 
+>int potValue1 = analogRead(A0);
+
+>int potValue2 = analogRead(A1);
+
+>int timing1 = 400 + (potValue1);
+
+>int timing2 = 400 + (potValue2);
+
+
+>digitalWrite(9, HIGH);
+ 
+ 
+>delayMicroseconds(timing1);
+ 
+ 
+>digitalWrite(9, LOW);
+ 
+ 
+>delay(10);
+ 
+
+>digitalWrite(10, HIGH);
+ 
+
+>delayMicroseconds(timing2);
+ 
+
+>digitalWrite(10, LOW);
+
+
+>delay(10);
+
+>}
+
+####arm review
+the arm itself is rather small, which is useful for trasnport. due to the 3d printing process and personal inexperience with space tollerances, parts had to be sanded or remade to fit, and the final version still has high friction in the joints, causing some sticking with the horizontal movement. the controls are easy to manage manually as with two servos there is only a need for two potentiometers.
+
+
+we were also tasked with creating a controlable 3d model in a visualisation software known as rviz through ROS. this would have used .stl files of the arm components in a URDF file which would then connect the pieces with joints which can then be controled through ROS.
+this was not completed in time or to a useful degree as we had never used URDF files before, the model was too complex, would require several simulated joints in my understanding as i donot think the collision would agree with rotation, and after trying to complete just the claw digit and claw rail components and move the centres to allign, the computer would freeze, and restarting and getting to the just before that same point would freeze the computer again. no additional work could be done outside of lab hours due to no access to a Linux machine.
 
 
 
