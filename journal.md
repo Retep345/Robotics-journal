@@ -370,7 +370,7 @@ the code used to control the servo motors in the arm is as follows:
 
 >}
 
-####arm review
+**arm review**
 the arm itself is rather small, which is useful for trasnport. due to the 3d printing process and personal inexperience with space tollerances, parts had to be sanded or remade to fit, and the final version still has high friction in the joints, causing some sticking with the horizontal movement. the controls are easy to manage manually as with two servos there is only a need for two potentiometers.
 
 
