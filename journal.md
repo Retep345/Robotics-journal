@@ -94,32 +94,57 @@ attaching a card disc with a segment removed, the LDR will read infared light on
 the code below is what the arduino board was programmed with:
 
 >/#define NOT_AN_INTERRUPT -1
->
+
 >const byte ledPin = 13;
+
 >const byte interruptPin = 2;
+
 >volatile byte state = LOW;
+
 >int pulseCounter = 0;
 
+
+
 >void setup() {
+
 > pinMode(ledPin, OUTPUT);
+
 > pinMode(interruptPin, INPUT);
+
 > Serial.begin(9600); // set up Serial library at 9600 bps
 
+
+
 >// configure the interrupt call-back: blink is called everytime the pin
+
 >// goes from low to high.
+
 > attachInterrupt(digitalPinToInterrupt(interruptPin), blink, RISING);
+
 >}
+
+
 
 >void loop() {
+
 > digitalWrite(ledPin, state);
+
 > String counterString = String(pulseCounter);
+
 > Serial.println(counterString); // prints hello with ending line break
+
 > delay(1000); // wait 1s
+
 >}
 
+
+
 >void blink() {
+
 > state = !state;
+
 > pulseCounter++;
+
 >}
 
 
