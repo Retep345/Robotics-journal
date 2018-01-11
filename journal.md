@@ -373,7 +373,7 @@ the code used to control the servo motors in the arm is as follows:
 **arm review**
 the arm itself is rather small, which is useful for trasnport. due to the 3d printing process and personal inexperience with space tollerances, parts had to be sanded or remade to fit, and the final version still has high friction in the joints, causing some sticking with the horizontal movement. the controls are easy to manage manually as with two servos there is only a need for two potentiometers.
 
-
+###ROS and rviz
 we were also tasked with creating a controlable 3d model in a visualisation software known as rviz through ROS. this would have used .stl files of the arm components in a URDF file which would then connect the pieces with joints which can then be controled through ROS.
 this was not completed in time or to a useful degree as we had never used URDF files before, the model was too complex, would require several simulated joints in my understanding as i donot think the collision would agree with rotation, and after trying to complete just the claw digit and claw rail components and move the centres to allign, the computer would freeze, and restarting and getting to the just before that same point would freeze the computer again. no additional work could be done outside of lab hours due to no access to a Linux machine.
 
