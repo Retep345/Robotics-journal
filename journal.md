@@ -153,47 +153,151 @@ the code below is what the arduino board was programmed with:
 ## Motors
 
 ### Stepper Motors
+we were given a stepper motor and tasked with using an arduino board to control it in both one-phase and two-phase setups.
+the motor moves by generating magnetic poles opposite one another and draws a magnetic core into allignment.
 
+for a simplified one-phase motor, 4 equally spaced points become magnets in a pattern, which i will refer to as left, right, top, and bottom in a + configuration. with top with polarity S and botom with N, the N end of the core turns to allign and face top. if right becomes N and left S with top and bottom turned off, the core turns to face right. bottom at S and top at N turns again, and so on.
+
+for a simplified two-phase motor, the same 4 point setup can be used to explain. if top AND right are set to N, bottom AND left set to S, the core turns to be between the two N points. right/bottom N and left/top S then turn it to the new N midpoint.
+
+alternating between the two motor configurations create **half steps** so instead of 4 points, the motor will have 8.
 
 
 the code used for one-phase movement:
-**void setup(){
+
+>void setup(){
+
+>//set up channels A and B
+
+>pinMode(12, OUTPUT);  //Initiates Motor Channel A pin
+
+>pinMode(9, OUTPUT);   //Initiates Brake Channel A pin
+
+>pinMode(13, OUTPUT);  //Initiates Motor Channel B pin
+
+>pinMode(8, OUTPUT);   //Initiates Brake Channel B pin
+
+>}
+
+
+
+>void loop(){
+
+
+
+>digitalWrite(12, HIGH); //Establishes forward direction of Channel A
+
+>digitalWrite(9, LOW);   //Disengage the Brake for Channel A
+
+>analogWrite(3, 255);    //Spins the motor on Channel A at full speed
+
+>digitalWrite(13, HIGH); //Establishes forward direction of Channel B
+
+>digitalWrite(8, LOW);   //Disengage the Brake for Channel B
  
- **//set up channels A and B
- pinMode(12, OUTPUT);  //Initiates Motor Channel A pin
- pinMode(9, OUTPUT);   //Initiates Brake Channel A pin
- pinMode(13, OUTPUT);  //Initiates Motor Channel B pin
- pinMode(8, OUTPUT);   //Initiates Brake Channel B pin
-}
+>analogWrite(11, 0);    //Spins the motor on Channel B at full speed
+  
 
-**void loop(){
-  
-  **digitalWrite(12, HIGH); //Establishes forward direction of Channel A
-  digitalWrite(9, LOW);   //Disengage the Brake for Channel A
-  analogWrite(3, 255);    //Spins the motor on Channel A at full speed
-  digitalWrite(13, HIGH); //Establishes forward direction of Channel B
-  digitalWrite(8, LOW);   //Disengage the Brake for Channel B
-  analogWrite(11, 0);    //Spins the motor on Channel B at full speed
-  
-  **delay(1);
-  
-  **analogWrite(3, 0);    //Spins the motor on Channel A at full speed
-  **analogWrite(11, 255);    //Spins the motor on Channel B at full speed
 
-  **delay(1);
-  
-  **digitalWrite(12, LOW); //Establishes backward direction of Channel A
-  analogWrite(3, 255);    //Spins the motor on Channel A at full speed
-  digitalWrite(13, LOW); //Establishes backward direction of Channel B
-  analogWrite(11, 0);    //Spins the motor on Channel B at full speed
-  
-  **delay(1);
-  
-  **analogWrite(3, 0);    //Spins the motor on Channel A at full speed
-  analogWrite(11, 255);    //Spins the motor on Channel B at full speed
+>delay(1);
 
-  **delay(1);
-}
+
+
+>analogWrite(3, 0);    //Spins the motor on Channel A at full speed
+
+>analogWrite(11, 255);    //Spins the motor on Channel B at full speed
+
+
+
+>delay(1);
+
+
+
+>digitalWrite(12, LOW); //Establishes backward direction of Channel A
+
+>analogWrite(3, 255);    //Spins the motor on Channel A at full speed
+
+>digitalWrite(13, LOW); //Establishes backward direction of Channel B
+
+>analogWrite(11, 0);    //Spins the motor on Channel B at full speed
+
+
+
+>delay(1);
+  
+
+
+>analogWrite(3, 0);    //Spins the motor on Channel A at full speed
+
+>analogWrite(11, 255);    //Spins the motor on Channel B at full speed
+
+
+ 
+>delay(1);
+
+>}
+
+
+the code used for two-phase movement
+
+>void setup(){
+
+
+
+>//set up channels A and B
+
+>pinMode(12, OUTPUT);  //Initiates Motor Channel A pin
+
+>pinMode(9, OUTPUT);   //Initiates Brake Channel A pin
+
+>pinMode(13, OUTPUT);  //Initiates Motor Channel B pin
+
+>pinMode(8, OUTPUT);   //Initiates Brake Channel B pin
+
+>}
+
+
+
+>void loop(){
+
+>digitalWrite(12, HIGH); //Establishes forward direction of Channel A
+
+>digitalWrite(9, LOW);   //Disengage the Brake for Channel A
+
+>analogWrite(3, 255);    //Spins the motor on Channel A at full speed
+
+>digitalWrite(13, HIGH); //Establishes forward direction of Channel B
+
+>digitalWrite(8, LOW);   //Disengage the Brake for Channel B
+
+>analogWrite(11, 255);    //Spins the motor on Channel B at full speed
+
+
+>delay(1);
+
+
+>digitalWrite(12, LOW); //Establishes backward direction of Channel A
+
+
+>delay(1);
+
+
+>digitalWrite(13, LOW); //Establishes backward direction of Channel B
+
+
+>delay(1);
+ 
+ 
+>digitalWrite(12, HIGH); //Establishes forward direction of Channel A
+
+
+>delay(1);
+
+
+>}
+
+
+
 
 ### Servo Motors
 
