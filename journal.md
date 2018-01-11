@@ -373,9 +373,18 @@ the code used to control the servo motors in the arm is as follows:
 **arm review**
 the arm itself is rather small, which is useful for trasnport. due to the 3d printing process and personal inexperience with space tollerances, parts had to be sanded or remade to fit, and the final version still has high friction in the joints, causing some sticking with the horizontal movement. the controls are easy to manage manually as with two servos there is only a need for two potentiometers.
 
+the arm could be improved by adding weight to the base, which would keep it stable, and more finely sanding the joints to reduce friction. a better connection to the servo would stop slippage as at the moment the single screw acts as an independant point of rotation which causes jamming in some cases. having two points of attachment would remove that rotation and prevent jamming. other minor improvements would be size of the robot itself and the claw, as it's size limits it's range and usability
+
+
+
 ###ROS and rviz
 we were also tasked with creating a controlable 3d model in a visualisation software known as rviz through ROS. this would have used .stl files of the arm components in a URDF file which would then connect the pieces with joints which can then be controled through ROS.
-this was not completed in time or to a useful degree as we had never used URDF files before, the model was too complex, would require several simulated joints in my understanding as i donot think the collision would agree with rotation, and after trying to complete just the claw digit and claw rail components and move the centres to allign, the computer would freeze, and restarting and getting to the just before that same point would freeze the computer again. no additional work could be done outside of lab hours due to no access to a Linux machine.
+
+without prior experience, this was difficult. the .stl files had a centre that was not near the model, and so the code need to have offsets to correctly position them. the design of the robot arm also proved hard to convert as ros can follow the arduino code, but my limited understanding meant i could not move it correctly. the elbow and wrist were treated by rviz as two servo motors, but without an actual signal would not move and so the arm would rotate instead of moving horizontally.
+
+to simplify this, we decided to focus only on the claw. two parts and one joint which had a servo signal. this point was where we found the centres were causing a problem, as using an rviz system to see the centres showed them distant from the objects. changing the URDF to move the centres progressvly moved it closer, but the scale was also altered and so moving it exactly was difficult.
+
+after nearly getting the centres close, adding the code for the joint and tryng to update ros and rviz for it caused the computer to freeze. restarting the computer and loading ros and rviz would then get it to the where they were running, but adding the URDF file to rviz would then freeze the computer again
 
 
 
