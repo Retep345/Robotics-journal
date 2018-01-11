@@ -377,7 +377,8 @@ the arm could be improved by adding weight to the base, which would keep it stab
 
 
 
-###ROS and rviz
+### ROS and Rviz
+
 we were also tasked with creating a controlable 3d model in a visualisation software known as rviz through ROS. this would have used .stl files of the arm components in a URDF file which would then connect the pieces with joints which can then be controled through ROS.
 
 without prior experience, this was difficult. the .stl files had a centre that was not near the model, and so the code need to have offsets to correctly position them. the design of the robot arm also proved hard to convert as ros can follow the arduino code, but my limited understanding meant i could not move it correctly. the elbow and wrist were treated by rviz as two servo motors, but without an actual signal would not move and so the arm would rotate instead of moving horizontally.
